@@ -1,9 +1,9 @@
-#include<stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
-
+//stack implemented using linkedlist
 struct node{
     int data;
-    struct node* next;
+    struct node* next;       // pointer to the next node
 };
 
 struct node* head = NULL;
@@ -15,16 +15,17 @@ void push(int data){
     temp->next = head;
     head = temp;
 }
-void pop(){
+int pop(){
     if(head == NULL){
-        printf("ERROR\n");
-        return;
+        printf("ERROR empty stack\n");
+        return 0;
     }
     struct node* temp = (struct node*)malloc(sizeof(struct node*));
     temp = head;
     head = temp->next;
+    int popped = temp->data;
     free(temp);
-
+    return popped;
 }
 
 void printList(){   
@@ -37,14 +38,14 @@ void printList(){
     printf("]");
 }
 
-
-
 void main(){
-    push(9);
+    push(12);
     push(8);
+    push(11);
     pop();
     pop();
-    
+    pop();
+
     printList();
 
 }
