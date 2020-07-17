@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-struct node{
+struct Node{
     int data;
-    struct node* next;               // points to adress of the next node in the list
+    struct Node* next;               // points to adress of the next node in the list
 };
 
-struct node* head = NULL;            // points to the the first node (initially list size 0,then null)
+struct Node* head = NULL;            // points to the the first node (initially list size 0,then null)
 
 
 // display list
 void printList(){   
-    struct node* ptr = head;         // ptr is a pointer to a datatype of (struct node) which points to the head
+    struct Node* ptr = head;         // ptr is a pointer to a datatype of (struct node) which points to the head
     printf("\n[");
     while(ptr != NULL){
         printf("%d ",(*ptr).data);   //(*ptr).data is same as ptr->data  
@@ -20,7 +20,7 @@ void printList(){
 }
 
 void insertFirst(int data){          //inserts node to the starting of the list
-    struct node* link = (struct node*)malloc(sizeof(struct node)); // create a link ie temp
+    struct Node* link = (struct Node*)malloc(sizeof(struct Node)); // create a link ie temp
     link->data = data;
     link->next = head;                  // point link to old first node
 
@@ -29,7 +29,7 @@ void insertFirst(int data){          //inserts node to the starting of the list
 
 
 void insertNth(int data,int n){
-    struct node* temp1 = (struct node*)malloc(sizeof(struct node*));
+    struct Node* temp1 = (struct Node*)malloc(sizeof(struct Node*));
     temp1->data = data;
     temp1->next= NULL;
     if(n == 1){
@@ -37,7 +37,7 @@ void insertNth(int data,int n){
         head = temp1;
         return;
     }
-    struct node* temp2 = (struct node*)malloc(sizeof(struct node*));
+    struct Node* temp2 = (struct Node*)malloc(sizeof(struct Node*));
     temp2 = head;
     for(int i=0;i<n-2;i++){
         temp2 = temp2->next;
@@ -49,8 +49,8 @@ void insertNth(int data,int n){
 }
 
 void deleteNth(int n){
-    struct node* temp  = (struct node*)malloc(sizeof(struct node*));
-    struct node* temp2 = (struct node*)malloc(sizeof(struct node*));
+    struct Node* temp  = (struct Node*)malloc(sizeof(struct Node*));
+    struct Node* temp2 = (struct Node*)malloc(sizeof(struct Node*));
 
     temp = head;                // temp points to the first node
    
@@ -69,7 +69,7 @@ void deleteNth(int n){
 
 void insertLast(int data){
     int t = 0;
-    struct node* ctr = head;
+    struct Node* ctr = head;
     while(ctr != NULL){
         ctr = ctr->next;
         t++;

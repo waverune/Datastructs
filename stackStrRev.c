@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include<string.h>
 
-struct node{
+struct Node{
     char ch;
-    struct node* next;
+    struct Node* next;
 };
 
-struct node* head = NULL;
+struct Node* head = NULL;
 
 void push(char ch){
-    struct node* temp = (struct node*)malloc(sizeof(struct node*));
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node*));
 
     temp->ch = ch;
     temp->next = head;
@@ -22,21 +22,21 @@ void pop(){
         printf("ERROR\n");
         return;
     }
-    struct node* temp = (struct node*)malloc(sizeof(struct node*));
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node*));
     temp = head;
     head = temp->next;
     free(temp);
 
 }
 char top(){
-    struct node* temp = (struct node*)malloc(sizeof(struct node*));
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node*));
     temp = head;
 
     return temp->ch;
 }
 
 void reverse(char str[],int n){
-    struct node* temp = (struct node*)malloc(sizeof(struct node*));
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node*));
     temp = head;
     for (int i=0;i<n;i++){
         push(str[i]);

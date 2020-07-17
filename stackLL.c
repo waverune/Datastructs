@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 //stack implemented using linkedlist
-struct node{
+//LIFO
+struct Node{
     int data;
-    struct node* next;       // pointer to the next node
+    struct Node* next;       // pointer to the next node
 };
 
-struct node* head = NULL;
+struct Node* head = NULL;
 
 void push(int data){
-    struct node* temp = (struct node*)malloc(sizeof(struct node*));
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node*));
 
     temp->data = data;
     temp->next = head;
@@ -20,7 +21,7 @@ int pop(){
         printf("ERROR empty stack\n");
         return 0;
     }
-    struct node* temp = (struct node*)malloc(sizeof(struct node*));
+    struct Node* temp = (struct Node*)malloc(sizeof(struct Node*));
     temp = head;
     head = temp->next;
     int popped = temp->data;
@@ -29,7 +30,7 @@ int pop(){
 }
 
 void printList(){   
-    struct node* ptr = head;         // ptr is a pointer to a datatype of (struct node) which points to the head
+    struct Node* ptr = head;         // ptr is a pointer to a datatype of (struct node) which points to the head
     printf("\n[");
     while(ptr != NULL){
         printf("%d ",(*ptr).data);   //(*ptr).data is same as ptr->data  
@@ -42,6 +43,7 @@ void main(){
     push(12);
     push(8);
     push(11);
+    push(9);
     pop();
     pop();
     pop();
