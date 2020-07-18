@@ -9,12 +9,12 @@ struct queue {
   int rear;
 };
 
-/* struct queue* createQueue();
+struct queue* createQueue();
 void enqueue(struct queue* q, int);
 int dequeue(struct queue* q);
 void display(struct queue* q);
-int isEmpty(struct queue* q);
-void printQueue(struct queue* q); */
+bool isEmpty(struct queue* q);
+void printQueue(struct queue* q);
 // Create a queue
 struct queue* createQueue() {
   struct queue* q = (struct queue*)malloc(sizeof(struct queue));
@@ -53,7 +53,7 @@ int dequeue(struct queue* q) {
     item = q->items[q->front];
     q->front++;
     if (q->front > q->rear) {
-      printf("Resetting queue ");
+      printf("Resetting queue \n");
       q->front = q->rear = -1;
     }
   }
@@ -75,7 +75,7 @@ void printQueue(struct queue* q) {
   printf("\n");
 }
 
-void main(){
+/* void main(){
     struct queue* Q = createQueue();
     enqueue(Q,1);
     enqueue(Q,2);
@@ -83,4 +83,4 @@ void main(){
     dequeue(Q);
     printQueue(Q);
 
-}
+}  */
