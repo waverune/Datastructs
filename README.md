@@ -7,4 +7,5 @@ Data structure implementation and their use in C
 - Queue
 - Graph adjacency list
 
-// to be added  hash tables etc...
+// to be added  hash tables, bloom filter
+
